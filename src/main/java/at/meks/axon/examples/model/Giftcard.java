@@ -69,14 +69,14 @@ public class Giftcard {
 
     private Optional<Integer> lastestRedeemedAmount() {
         if (!cardRedemptions.isEmpty()) {
-            return Optional.of(cardRedemptions.get(cardRedemptions.size() - 1));
+            return Optional.of(cardRedemptions.getLast());
         }
         return Optional.empty();
     }
 
     @EventSourcingHandler
     void handle(Api.LatestRedemptionUndoneEvent event) {
-        cardRedemptions.remove(cardRedemptions.size() - 1);
+        cardRedemptions.removeLast();
         this.currentAmount += event.amount();
     }
 

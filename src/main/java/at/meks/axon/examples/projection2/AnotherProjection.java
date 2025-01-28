@@ -14,8 +14,4 @@ public class AnotherProjection {
         cardIssuedEventWasHandled = true;
     }
 
-    public boolean cardIssuedEventWasHandled() {
-        return cardIssuedEventWasHandled;
-    }
-
 }
