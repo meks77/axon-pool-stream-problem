@@ -1,0 +1,51 @@
+= pooled-problem
+
+This project is thought to give Axoniq an example of a use case, which doesn't work as expected to get help in fixing the problem.
+
+== What is the problem
+
+If the pooled processor ist setup without a name, the other configured properties, like initial segments, are not considered.
+
+If the name is set, the server is not able to pause the event processor. But this is necessare in containerized environments, where many pods of the same instance are started.
+
+== How to reproduce
+
+=== Using Devservices
+
+==== Requirements
+A container engine(podman or docker) is available.
+
+==== Steps
+
+* open eg. IntelliJ IDEA
+* checkout the project
+* the gradle import should start automatically
+* start the quarkus dev process
+* search for the text "Axon Server UI listens to port" in the console out and copy the port number
+* open the Axon Server UI http://localhost with the found port number
+* go to the event processor of the application
+* click on pause
+
+=== Without Devservices
+
+==== Requirements
+* A running Axon Server
+* Configuration changes
+
+Ideally you add the following line to the file application.properties.
+
+[source,properties]
+----
+quarkus.devservices.enabled=false
+----
+
+Furthermore, if your Axon Server is not running on your local machine with defaults and without token, you can configure the connection information like in this example:
+
+[source,properties]
+----
+quarkus.axon.server.grpc-port=9924
+quarkus.axon.server.hostname=axonserver.mydomain.com
+quarkus.axon.server.context=myTestContext
+quarkus.axon.server.token=myToken
+----
+
