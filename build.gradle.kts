@@ -15,7 +15,7 @@ val quarkusPlatformVersion: String by project
 dependencies {
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
     implementation("io.quarkus:quarkus-arc")
-//    implementation("io.quarkus:quarkus-rest")
+    implementation("io.quarkus:quarkus-rest")
     implementation("at.meks.quarkiverse.axonframework-extension:quarkus-axon:0.1.0-RC8")
     implementation("at.meks.quarkiverse.axonframework-extension:quarkus-axon-pooled-eventprocessor:0.1.0-RC8")
     implementation("at.meks.quarkiverse.axonframework-extension:quarkus-axon-server:0.1.0-RC8")

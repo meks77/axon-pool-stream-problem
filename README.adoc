@@ -49,3 +49,13 @@ quarkus.axon.server.context=myTestContext
 quarkus.axon.server.token=myToken
 ----
 
+== Workaround
+configure the name to the name of one package where eventprocessors are available.
+This is done by adding the following line to the application.properties:
+
+[source,properties]
+----
+quarkus.axon.pooledprocessor.name=at.meks.axon.examples.projection2
+----
+
+Using the file rest-call.http in IntelliJ you can issue a new card. In the logs you can see that eventhandlers are informed about the card issued event.

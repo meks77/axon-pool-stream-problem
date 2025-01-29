@@ -15,13 +15,13 @@ public class GiftcardInMemoryHistory {
 
     @EventHandler
     void handle(Api.CardIssuedEvent event) {
-        Log.debugf("handling event %s", event);
+        Log.infof("handling event %s", event);
         history.add(event);
     }
 
     @EventHandler
     void handle(Api.CardRedeemedEvent event) {
-        Log.debugf("handling event %s", event);
+        Log.infof("handling event %s", event);
         history.add(event);
     }
 
